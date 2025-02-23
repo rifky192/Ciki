@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rifky Shopp</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #2d3e50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .product {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 30%;
+            padding: 20px;
+            text-align: center;
+        }
+        .product img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .product h3 {
+            margin-top: 15px;
+        }
+        .product p {
+            margin: 10px 0;
+            color: #777;
+        }
+        .product button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .product button:hover {
+            background-color: #218838;
+        }
+        .checkout-form {
+            background-color: white;
+            padding: 20px;
+            margin-top: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .checkout-form input, .checkout-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .checkout-form button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .checkout-form button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Rifky Shopp</h1>
+    <p>Pusat Perbelanjaan Terlengkap & Terpercaya</p>
+</header>
+
+<div class="container">
+    <h2>Produk Kami</h2>
+    <div class="products">
+        <!-- Product 1 -->
+        <div class="product">
+            <img src="https://via.placeholder.com/200" alt="Product 1">
+            <h3>Produk A</h3>
+            <p>Deskripsi singkat produk A. Produk berkualitas tinggi.</p>
+            <p>Harga: Rp 100.000</p>
+            <button onclick="addToCart('Produk A', 100000)">Tambah ke Keranjang</button>
+        </div>
+        
+        <!-- Product 2 -->
+        <div class="product">
+            <img src="https://via.placeholder.com/200" alt="Product 2">
+            <h3>Produk B</h3>
+            <p>Deskripsi singkat produk B. Produk berkualitas tinggi.</p>
+            <p>Harga: Rp 150.000</p>
+            <button onclick="addToCart('Produk B', 150000)">Tambah ke Keranjang</button>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product">
+            <img src="https://via.placeholder.com/200" alt="Product 3">
+            <h3>Produk C</h3>
+            <p>Deskripsi singkat produk C. Produk berkualitas tinggi.</p>
+            <p>Harga: Rp 200.000</p>
+            <button onclick="addToCart('Produk C', 200000)">Tambah ke Keranjang</button>
+        </div>
+    </div>
+
+    <div class="checkout-form">
+        <h2>Formulir Checkout</h2>
+        <form id="checkoutForm" onsubmit="submitCheckout(event)">
+            <label for="name">Nama Lengkap:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="address">Alamat Pengiriman:</label>
+            <textarea id="address" name="address" required></textarea>
+            
+            <label for="items">Daftar Produk:</label>
+            <textarea id="items" name="items" readonly></textarea>
+            
+            <label for="total">Total Harga:</label>
+            <input type="text" id="total" name="total" readonly>
+            
+            <button type="submit">Checkout</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    let cart = [];
+    
+    function addToCart(product, price) {
+        cart.push({ product, price });
+        alert(`${product} telah ditambahkan ke keranjang.`);
+        updateCheckout();
+    }
+    
+    function updateCheckout() {
+        const itemsTextarea = document.getElementById('items');
+        const totalInput = document.getElementById('total');
+        
+        let itemsList = '';
+        let total = 0;
+        cart.forEach(item => {
+            itemsList += `${item.product} - Rp ${item.price.toLocaleString()}\n`;
+            total += item.price;
+        });
+        
+        itemsTextarea.value = itemsList;
+        totalInput.value = `Rp ${total.toLocaleString()}`;
+    }
+    
+    function submitCheckout(event) {
+        event.preventDefault();
+        alert("Checkout berhasil! Terima kasih telah berbelanja di Rifky Shopp.");
+        cart = [];
+        updateCheckout();
+        document.getElementById('checkoutForm').reset();
+    }
+</script>
+
+</body>
+</html>
