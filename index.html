@@ -4,37 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rifky Shopp - Pusat Perbelanjaan Fashion Pria</title>
-    <link rel="stylesheet" href="styles.css">
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-image: url('https://example.com/background.jpg'); /* Ganti dengan URL gambar latar belakang */
+            background-size: cover;
+            color: #fff;
         }
         header {
-            background: #333;
-            color: #fff;
-            padding: 10px 0;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
             text-align: center;
         }
         .container {
             width: 80%;
             margin: auto;
             overflow: hidden;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
         }
         .product {
-            background: #fff;
+            background: rgba(255, 255, 255, 0.9);
             border: 1px solid #ddd;
             margin: 20px 0;
             padding: 20px;
             text-align: center;
+            border-radius: 10px;
+        }
+        .product img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
         }
         .checkout {
             margin-top: 20px;
             padding: 20px;
-            background: #fff;
-            border: 1px solid #ddd;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
         }
         button {
             background: #28a745;
@@ -42,6 +51,7 @@
             border: none;
             padding: 10px 20px;
             cursor: pointer;
+            border-radius: 5px;
         }
         button:hover {
             background: #218838;
@@ -59,18 +69,21 @@
     <h2>Produk Kami</h2>
 
     <div class="product">
+        <img src="https://example.com/kemeja.jpg" alt="Kemeja Pria">
         <h3>Kemeja Pria</h3>
         <p>Harga: Rp 200.000</p>
         <button onclick="addToCart('Kemeja Pria', 200000)">Tambah ke Keranjang</button>
     </div>
 
     <div class="product">
+        <img src="https://example.com/jaket.jpg" alt="Jaket Pria">
         <h3>Jaket Pria</h3>
         <p>Harga: Rp 350.000</p>
         <button onclick="addToCart('Jaket Pria', 350000)">Tambah ke Keranjang</button>
     </div>
 
     <div class="product">
+        <img src="https://example.com/celana.jpg" alt="Celana Panjang Pria">
         <h3>Celana Panjang Pria</h3>
         <p>Harga: Rp 250.000</p>
         <button onclick="addToCart('Celana Panjang Pria', 250000)">Tambah ke Keranjang</button>
@@ -99,15 +112,4 @@
         alert(productName + ' telah ditambahkan ke keranjang.');
     }
 
-    document.getElementById('checkoutForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-        alert('Pembayaran berhasil! Terima kasih, ' + document.getElementById('name').value);
-        // Reset form and total
-        totalAmount = 0;
-        document.getElementById('total').value = '';
-        this.reset();
-    });
-</script>
-
-</body>
-</html>
+    document.getElementById('checkoutForm').addEventListener('submit',
