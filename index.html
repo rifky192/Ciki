@@ -3,22 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rifky Shopp</title>
+    <title>Rifky Shopp - Fashion Pria</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #f9f9f9;
         }
         header {
-            background-color: #2d3e50;
+            background-color: #343a40;
             color: white;
             text-align: center;
-            padding: 10px;
+            padding: 20px;
         }
         header h1 {
             margin: 0;
+        }
+        header p {
+            margin: 5px 0;
         }
         .container {
             width: 80%;
@@ -28,14 +31,16 @@
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
+            justify-content: space-between;
         }
         .product {
             background-color: white;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             width: 30%;
-            padding: 20px;
+            padding: 15px;
             text-align: center;
+            box-sizing: border-box;
         }
         .product img {
             width: 100%;
@@ -48,6 +53,11 @@
         .product p {
             margin: 10px 0;
             color: #777;
+        }
+        .product .price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
         }
         .product button {
             background-color: #28a745;
@@ -91,37 +101,37 @@
 
 <header>
     <h1>Rifky Shopp</h1>
-    <p>Pusat Perbelanjaan Terlengkap & Terpercaya</p>
+    <p>Fashion Pria Terbaru & Terlengkap</p>
 </header>
 
 <div class="container">
-    <h2>Produk Kami</h2>
+    <h2>Produk Fashion Pria</h2>
     <div class="products">
-        <!-- Product 1 -->
+        <!-- Product 1 - Kaos -->
         <div class="product">
-            <img src="https://via.placeholder.com/200" alt="Product 1">
-            <h3>Produk A</h3>
-            <p>Deskripsi singkat produk A. Produk berkualitas tinggi.</p>
-            <p>Harga: Rp 100.000</p>
-            <button onclick="addToCart('Produk A', 100000)">Tambah ke Keranjang</button>
+            <img src="https://via.placeholder.com/300x300?text=Kaos+Pria" alt="Kaos Pria">
+            <h3>Kaos Pria Premium</h3>
+            <p>Kaos berbahan katun dengan desain simpel dan nyaman digunakan.</p>
+            <p class="price">Rp 150.000</p>
+            <button onclick="addToCart('Kaos Pria Premium', 150000)">Tambah ke Keranjang</button>
         </div>
         
-        <!-- Product 2 -->
+        <!-- Product 2 - Celana -->
         <div class="product">
-            <img src="https://via.placeholder.com/200" alt="Product 2">
-            <h3>Produk B</h3>
-            <p>Deskripsi singkat produk B. Produk berkualitas tinggi.</p>
-            <p>Harga: Rp 150.000</p>
-            <button onclick="addToCart('Produk B', 150000)">Tambah ke Keranjang</button>
+            <img src="https://via.placeholder.com/300x300?text=Celana+Pria" alt="Celana Pria">
+            <h3>Celana Chino Pria</h3>
+            <p>Celana chino dengan desain modern dan bahan yang nyaman dipakai sepanjang hari.</p>
+            <p class="price">Rp 250.000</p>
+            <button onclick="addToCart('Celana Chino Pria', 250000)">Tambah ke Keranjang</button>
         </div>
 
-        <!-- Product 3 -->
+        <!-- Product 3 - Sepatu -->
         <div class="product">
-            <img src="https://via.placeholder.com/200" alt="Product 3">
-            <h3>Produk C</h3>
-            <p>Deskripsi singkat produk C. Produk berkualitas tinggi.</p>
-            <p>Harga: Rp 200.000</p>
-            <button onclick="addToCart('Produk C', 200000)">Tambah ke Keranjang</button>
+            <img src="https://via.placeholder.com/300x300?text=Sepatu+Pria" alt="Sepatu Pria">
+            <h3>Sepatu Sneakers Pria</h3>
+            <p>Sepatu sneakers pria dengan desain trendi dan nyaman untuk aktivitas sehari-hari.</p>
+            <p class="price">Rp 350.000</p>
+            <button onclick="addToCart('Sepatu Sneakers Pria', 350000)">Tambah ke Keranjang</button>
         </div>
     </div>
 
