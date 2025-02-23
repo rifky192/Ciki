@@ -3,97 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rifky Shopp - Fashion Pria</title>
+    <title>Rifky Shopp - Pusat Perbelanjaan Fashion Pria</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
+            background-color: #f4f4f4;
         }
         header {
-            background-color: #343a40;
-            color: white;
+            background: #333;
+            color: #fff;
+            padding: 10px 0;
             text-align: center;
-            padding: 20px;
-        }
-        header h1 {
-            margin: 0;
-        }
-        header p {
-            margin: 5px 0;
         }
         .container {
             width: 80%;
-            margin: 20px auto;
-        }
-        .products {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: space-between;
+            margin: auto;
+            overflow: hidden;
         }
         .product {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            width: 30%;
-            padding: 15px;
-            text-align: center;
-            box-sizing: border-box;
-        }
-        .product img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
-        .product h3 {
-            margin-top: 15px;
-        }
-        .product p {
-            margin: 10px 0;
-            color: #777;
-        }
-        .product .price {
-            font-size: 18px;
-            font-weight: bold;
-            color: #333;
-        }
-        .product button {
-            background-color: #28a745;
-            color: white;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .product button:hover {
-            background-color: #218838;
-        }
-        .checkout-form {
-            background-color: white;
+            background: #fff;
+            border: 1px solid #ddd;
+            margin: 20px 0;
             padding: 20px;
-            margin-top: 30px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
-        .checkout-form input, .checkout-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-            border: 1px solid #ccc;
+        .checkout {
+            margin-top: 20px;
+            padding: 20px;
+            background: #fff;
+            border: 1px solid #ddd;
         }
-        .checkout-form button {
-            background-color: #007bff;
-            color: white;
-            padding: 10px;
+        button {
+            background: #28a745;
+            color: #fff;
             border: none;
-            border-radius: 5px;
+            padding: 10px 20px;
             cursor: pointer;
-            width: 100%;
         }
-        .checkout-form button:hover {
-            background-color: #0056b3;
+        button:hover {
+            background: #218838;
         }
     </style>
 </head>
@@ -101,94 +52,61 @@
 
 <header>
     <h1>Rifky Shopp</h1>
-    <p>Fashion Pria Terbaru & Terlengkap</p>
+    <p>Pusat Perbelanjaan Fashion Pria</p>
 </header>
 
 <div class="container">
-    <h2>Produk Fashion Pria</h2>
-    <div class="products">
-        <!-- Product 1 - Kaos -->
-        <div class="product">
-            <img src="https://via.placeholder.com/300x300?text=Kaos+Pria" alt="Kaos Pria">
-            <h3>Kaos Pria Premium</h3>
-            <p>Kaos berbahan katun dengan desain simpel dan nyaman digunakan.</p>
-            <p class="price">Rp 150.000</p>
-            <button onclick="addToCart('Kaos Pria Premium', 150000)">Tambah ke Keranjang</button>
-        </div>
-        
-        <!-- Product 2 - Celana -->
-        <div class="product">
-            <img src="https://via.placeholder.com/300x300?text=Celana+Pria" alt="Celana Pria">
-            <h3>Celana Chino Pria</h3>
-            <p>Celana chino dengan desain modern dan bahan yang nyaman dipakai sepanjang hari.</p>
-            <p class="price">Rp 250.000</p>
-            <button onclick="addToCart('Celana Chino Pria', 250000)">Tambah ke Keranjang</button>
-        </div>
+    <h2>Produk Kami</h2>
 
-        <!-- Product 3 - Sepatu -->
-        <div class="product">
-            <img src="https://via.placeholder.com/300x300?text=Sepatu+Pria" alt="Sepatu Pria">
-            <h3>Sepatu Sneakers Pria</h3>
-            <p>Sepatu sneakers pria dengan desain trendi dan nyaman untuk aktivitas sehari-hari.</p>
-            <p class="price">Rp 350.000</p>
-            <button onclick="addToCart('Sepatu Sneakers Pria', 350000)">Tambah ke Keranjang</button>
-        </div>
+    <div class="product">
+        <h3>Kemeja Pria</h3>
+        <p>Harga: Rp 200.000</p>
+        <button onclick="addToCart('Kemeja Pria', 200000)">Tambah ke Keranjang</button>
     </div>
 
-    <div class="checkout-form">
-        <h2>Formulir Checkout</h2>
-        <form id="checkoutForm" onsubmit="submitCheckout(event)">
-            <label for="name">Nama Lengkap:</label>
-            <input type="text" id="name" name="name" required>
-            
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            
-            <label for="address">Alamat Pengiriman:</label>
-            <textarea id="address" name="address" required></textarea>
-            
-            <label for="items">Daftar Produk:</label>
-            <textarea id="items" name="items" readonly></textarea>
-            
-            <label for="total">Total Harga:</label>
-            <input type="text" id="total" name="total" readonly>
-            
-            <button type="submit">Checkout</button>
+    <div class="product">
+        <h3>Jaket Pria</h3>
+        <p>Harga: Rp 350.000</p>
+        <button onclick="addToCart('Jaket Pria', 350000)">Tambah ke Keranjang</button>
+    </div>
+
+    <div class="product">
+        <h3>Celana Panjang Pria</h3>
+        <p>Harga: Rp 250.000</p>
+        <button onclick="addToCart('Celana Panjang Pria', 250000)">Tambah ke Keranjang</button>
+    </div>
+
+    <div class="checkout">
+        <h2>Checkout</h2>
+        <form id="checkoutForm">
+            <label for="name">Nama:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="address">Alamat:</label><br>
+            <input type="text" id="address" name="address" required><br><br>
+            <label for="total">Total Pembayaran:</label><br>
+            <input type="text" id="total" name="total" readonly><br><br>
+            <button type="submit">Bayar</button>
         </form>
     </div>
 </div>
 
 <script>
-    let cart = [];
-    
-    function addToCart(product, price) {
-        cart.push({ product, price });
-        alert(`${product} telah ditambahkan ke keranjang.`);
-        updateCheckout();
+    let totalAmount = 0;
+
+    function addToCart(productName, productPrice) {
+        totalAmount += productPrice;
+        document.getElementById('total').value = 'Rp ' + totalAmount.toLocaleString();
+        alert(productName + ' telah ditambahkan ke keranjang.');
     }
-    
-    function updateCheckout() {
-        const itemsTextarea = document.getElementById('items');
-        const totalInput = document.getElementById('total');
-        
-        let itemsList = '';
-        let total = 0;
-        cart.forEach(item => {
-            itemsList += `${item.product} - Rp ${item.price.toLocaleString()}\n`;
-            total += item.price;
-        });
-        
-        itemsTextarea.value = itemsList;
-        totalInput.value = `Rp ${total.toLocaleString()}`;
-    }
-    
-    function submitCheckout(event) {
+
+    document.getElementById('checkoutForm').addEventListener('submit', function(event) {
         event.preventDefault();
-        alert("Checkout berhasil! Terima kasih telah berbelanja di Rifky Shopp.");
-        cart = [];
-        updateCheckout();
-        document.getElementById('checkoutForm').reset();
-    }
+        alert('Pembayaran berhasil! Terima kasih, ' + document.getElementById('name').value);
+        // Reset form and total
+        totalAmount = 0;
+        document.getElementById('total').value = '';
+        this.reset();
+    });
 </script>
 
 </body>
