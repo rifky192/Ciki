@@ -3,58 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rifky Shopp - Pusat Perbelanjaan Fashion Pria</title>
+    <title>Rifky Shopp - Fashion Pria</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url('https://example.com/background.jpg'); /* Ganti dengan URL gambar latar belakang */
+            background-image: url('https://via.placeholder.com/1500x1000?text=Background+Baju');
             background-size: cover;
-            color: #fff;
+            background-position: center;
+            color: white;
         }
         header {
-            background: rgba(0, 0, 0, 0.7);
-            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 30px;
             text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+        }
+        header p {
+            font-size: 1.2em;
+            margin-top: 5px;
         }
         .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-            background: rgba(0, 0, 0, 0.7);
+            width: 85%;
+            margin: 30px auto;
+            background-color: rgba(0, 0, 0, 0.5);
             padding: 20px;
             border-radius: 10px;
+        }
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
         }
         .product {
-            background: rgba(255, 255, 255, 0.9);
-            border: 1px solid #ddd;
-            margin: 20px 0;
-            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            width: 30%;
+            padding: 15px;
             text-align: center;
-            border-radius: 10px;
+            box-sizing: border-box;
         }
         .product img {
-            max-width: 100%;
+            width: 100%;
             height: auto;
-            border-radius: 10px;
+            border-radius: 8px;
         }
-        .checkout {
-            margin-top: 20px;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
+        .product h3 {
+            margin-top: 15px;
+            font-size: 1.5em;
+            color: #333;
         }
-        button {
-            background: #28a745;
-            color: #fff;
+        .product p {
+            margin: 10px 0;
+            color: #666;
+        }
+        .product .price {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #333;
+        }
+        .product button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
             border: none;
-            padding: 10px 20px;
-            cursor: pointer;
             border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
         }
-        button:hover {
-            background: #218838;
+        .product button:hover {
+            background-color: #218838;
+        }
+        .checkout-form {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            margin-top: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        .checkout-form input, .checkout-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .checkout-form button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .checkout-form button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
@@ -62,54 +111,95 @@
 
 <header>
     <h1>Rifky Shopp</h1>
-    <p>Pusat Perbelanjaan Fashion Pria</p>
+    <p>Fashion Pria Terbaru & Terlengkap</p>
 </header>
 
 <div class="container">
-    <h2>Produk Kami</h2>
+    <h2>Produk Fashion Pria</h2>
+    <div class="products">
+        <!-- Product 1 - Kaos -->
+        <div class="product">
+            <img src="https://via.placeholder.com/300x300?text=Kaos+Pria" alt="Kaos Pria">
+            <h3>Kaos Pria Premium</h3>
+            <p>Kaos berbahan katun dengan desain simpel dan nyaman digunakan.</p>
+            <p class="price">Rp 150.000</p>
+            <button onclick="addToCart('Kaos Pria Premium', 150000)">Tambah ke Keranjang</button>
+        </div>
+        
+        <!-- Product 2 - Celana -->
+        <div class="product">
+            <img src="https://via.placeholder.com/300x300?text=Celana+Chino" alt="Celana Chino Pria">
+            <h3>Celana Chino Pria</h3>
+            <p>Celana chino dengan desain modern dan bahan yang nyaman dipakai sepanjang hari.</p>
+            <p class="price">Rp 250.000</p>
+            <button onclick="addToCart('Celana Chino Pria', 250000)">Tambah ke Keranjang</button>
+        </div>
 
-    <div class="product">
-        <img src="https://example.com/kemeja.jpg" alt="Kemeja Pria">
-        <h3>Kemeja Pria</h3>
-        <p>Harga: Rp 200.000</p>
-        <button onclick="addToCart('Kemeja Pria', 200000)">Tambah ke Keranjang</button>
+        <!-- Product 3 - Sepatu -->
+        <div class="product">
+            <img src="https://via.placeholder.com/300x300?text=Sepatu+Pria" alt="Sepatu Sneakers Pria">
+            <h3>Sepatu Sneakers Pria</h3>
+            <p>Sepatu sneakers pria dengan desain trendi dan nyaman untuk aktivitas sehari-hari.</p>
+            <p class="price">Rp 350.000</p>
+            <button onclick="addToCart('Sepatu Sneakers Pria', 350000)">Tambah ke Keranjang</button>
+        </div>
     </div>
 
-    <div class="product">
-        <img src="https://example.com/jaket.jpg" alt="Jaket Pria">
-        <h3>Jaket Pria</h3>
-        <p>Harga: Rp 350.000</p>
-        <button onclick="addToCart('Jaket Pria', 350000)">Tambah ke Keranjang</button>
-    </div>
-
-    <div class="product">
-        <img src="https://example.com/celana.jpg" alt="Celana Panjang Pria">
-        <h3>Celana Panjang Pria</h3>
-        <p>Harga: Rp 250.000</p>
-        <button onclick="addToCart('Celana Panjang Pria', 250000)">Tambah ke Keranjang</button>
-    </div>
-
-    <div class="checkout">
-        <h2>Checkout</h2>
-        <form id="checkoutForm">
-            <label for="name">Nama:</label><br>
-            <input type="text" id="name" name="name" required><br><br>
-            <label for="address">Alamat:</label><br>
-            <input type="text" id="address" name="address" required><br><br>
-            <label for="total">Total Pembayaran:</label><br>
-            <input type="text" id="total" name="total" readonly><br><br>
-            <button type="submit">Bayar</button>
+    <div class="checkout-form">
+        <h2>Formulir Checkout</h2>
+        <form id="checkoutForm" onsubmit="submitCheckout(event)">
+            <label for="name">Nama Lengkap:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="address">Alamat Pengiriman:</label>
+            <textarea id="address" name="address" required></textarea>
+            
+            <label for="items">Daftar Produk:</label>
+            <textarea id="items" name="items" readonly></textarea>
+            
+            <label for="total">Total Harga:</label>
+            <input type="text" id="total" name="total" readonly>
+            
+            <button type="submit">Checkout</button>
         </form>
     </div>
 </div>
 
 <script>
-    let totalAmount = 0;
-
-    function addToCart(productName, productPrice) {
-        totalAmount += productPrice;
-        document.getElementById('total').value = 'Rp ' + totalAmount.toLocaleString();
-        alert(productName + ' telah ditambahkan ke keranjang.');
+    let cart = [];
+    
+    function addToCart(product, price) {
+        cart.push({ product, price });
+        alert(`${product} telah ditambahkan ke keranjang.`);
+        updateCheckout();
     }
+    
+    function updateCheckout() {
+        const itemsTextarea = document.getElementById('items');
+        const totalInput = document.getElementById('total');
+        
+        let itemsList = '';
+        let total = 0;
+        cart.forEach(item => {
+            itemsList += `${item.product} - Rp ${item.price.toLocaleString()}\n`;
+            total += item.price;
+        });
+        
+        itemsTextarea.value = itemsList;
+        totalInput.value = `Rp ${total.toLocaleString()}`;
+    }
+    
+    function submitCheckout(event) {
+        event.preventDefault();
+        alert("Checkout berhasil! Terima kasih telah berbelanja di Rifky Shopp.");
+        cart = [];
+        updateCheckout();
+        document.getElementById('checkoutForm').reset();
+    }
+</script>
 
-    document.getElementById('checkoutForm').addEventListener('submit',
+</body>
+</html>
