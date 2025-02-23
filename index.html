@@ -3,145 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rifky Shopp - Fashion Pria</title>
+    <title>Checkout Hoodie Animek KECE ABISZZ</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
-            background-image: url('https://via.placeholder.com/1500x1000?text=Background+Baju');
-            background-size: cover;
-            background-position: center;
-            color: white;
         }
         header {
-            background-color: rgba(0, 0, 0, 0.6);
-            padding: 30px;
+            background-color: #333;
+            color: white;
             text-align: center;
+            padding: 20px;
         }
         header h1 {
             margin: 0;
-            font-size: 3em;
-        }
-        header p {
-            font-size: 1.2em;
-            margin-top: 5px;
         }
         .container {
-            width: 85%;
-            margin: 30px auto;
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 20px;
+            width: 80%;
+            margin: 40px auto;
+            background-color: white;
+            padding: 30px;
             border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
-        .products {
+        .product-info {
             display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
+            align-items: center;
             justify-content: space-between;
         }
-        .product {
-            background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            width: 30%;
-            padding: 15px;
-            text-align: center;
-            box-sizing: border-box;
-        }
-        .product img {
-            width: 100%;
+        .product-info img {
+            width: 250px;
             height: auto;
             border-radius: 8px;
         }
-        .product h3 {
-            margin-top: 15px;
-            font-size: 1.5em;
-            color: #333;
+        .product-info .details {
+            flex: 1;
+            margin-left: 20px;
         }
-        .product p {
+        .product-info h2 {
+            margin: 0;
+            font-size: 2em;
+        }
+        .product-info p {
             margin: 10px 0;
-            color: #666;
+            color: #555;
         }
-        .product .price {
-            font-size: 1.4em;
+        .product-info .price {
+            font-size: 1.5em;
             font-weight: bold;
             color: #333;
         }
-        .product button {
-            background-color: #28a745;
-            color: white;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1.1em;
-        }
-        .product button:hover {
-            background-color: #218838;
-        }
         .checkout-form {
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 20px;
             margin-top: 30px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
         }
         .checkout-form input, .checkout-form textarea {
             width: 100%;
             padding: 10px;
             margin: 10px 0;
-            border-radius: 5px;
             border: 1px solid #ccc;
+            border-radius: 5px;
         }
         .checkout-form button {
-            background-color: #007bff;
+            background-color: #28a745;
             color: white;
-            padding: 10px;
+            padding: 12px;
             border: none;
             border-radius: 5px;
+            font-size: 1.2em;
             cursor: pointer;
             width: 100%;
         }
         .checkout-form button:hover {
-            background-color: #0056b3;
+            background-color: #218838;
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Rifky Shopp</h1>
-    <p>Fashion Pria Terbaru & Terlengkap</p>
+    <h1>Rifky Shopp - Hoodie Animek KECE ABISZZ</h1>
 </header>
 
 <div class="container">
-    <h2>Produk Fashion Pria</h2>
-    <div class="products">
-        <!-- Product 1 - Kaos -->
-        <div class="product">
-            <img src="https://via.placeholder.com/300x300?text=Kaos+Pria" alt="Kaos Pria">
-            <h3>Kaos Pria Premium</h3>
-            <p>Kaos berbahan katun dengan desain simpel dan nyaman digunakan.</p>
-            <p class="price">Rp 150.000</p>
-            <button onclick="addToCart('Kaos Pria Premium', 150000)">Tambah ke Keranjang</button>
-        </div>
+    <div class="product-info">
+        <!-- Product Image -->
+        <img src="https://via.placeholder.com/250x250?text=Hoodie+Animek+KECE+ABISZZ" alt="Hoodie Animek KECE ABISZZ">
         
-        <!-- Product 2 - Celana -->
-        <div class="product">
-            <img src="https://via.placeholder.com/300x300?text=Celana+Chino" alt="Celana Chino Pria">
-            <h3>Celana Chino Pria</h3>
-            <p>Celana chino dengan desain modern dan bahan yang nyaman dipakai sepanjang hari.</p>
-            <p class="price">Rp 250.000</p>
-            <button onclick="addToCart('Celana Chino Pria', 250000)">Tambah ke Keranjang</button>
-        </div>
-
-        <!-- Product 3 - Sepatu -->
-        <div class="product">
-            <img src="https://via.placeholder.com/300x300?text=Sepatu+Pria" alt="Sepatu Sneakers Pria">
-            <h3>Sepatu Sneakers Pria</h3>
-            <p>Sepatu sneakers pria dengan desain trendi dan nyaman untuk aktivitas sehari-hari.</p>
+        <!-- Product Details -->
+        <div class="details">
+            <h2>Hoodie Animek KECE ABISZZ</h2>
+            <p>Hoodie dengan desain anime keren dan bahan berkualitas premium. Cocok untuk gaya casual sehari-hari, nyaman, dan hangat!</p>
             <p class="price">Rp 350.000</p>
-            <button onclick="addToCart('Sepatu Sneakers Pria', 350000)">Tambah ke Keranjang</button>
         </div>
     </div>
 
@@ -150,53 +107,32 @@
         <form id="checkoutForm" onsubmit="submitCheckout(event)">
             <label for="name">Nama Lengkap:</label>
             <input type="text" id="name" name="name" required>
-            
+
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
-            
+
             <label for="address">Alamat Pengiriman:</label>
             <textarea id="address" name="address" required></textarea>
-            
-            <label for="items">Daftar Produk:</label>
-            <textarea id="items" name="items" readonly></textarea>
-            
-            <label for="total">Total Harga:</label>
-            <input type="text" id="total" name="total" readonly>
-            
+
+            <label for="phone">Nomor Telepon:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="payment">Metode Pembayaran:</label>
+            <select id="payment" name="payment" required>
+                <option value="transfer">Transfer Bank</option>
+                <option value="cod">Bayar di Tempat (COD)</option>
+                <option value="e-wallet">E-Wallet (OVO, GoPay, dll.)</option>
+            </select>
+
             <button type="submit">Checkout</button>
         </form>
     </div>
 </div>
 
 <script>
-    let cart = [];
-    
-    function addToCart(product, price) {
-        cart.push({ product, price });
-        alert(`${product} telah ditambahkan ke keranjang.`);
-        updateCheckout();
-    }
-    
-    function updateCheckout() {
-        const itemsTextarea = document.getElementById('items');
-        const totalInput = document.getElementById('total');
-        
-        let itemsList = '';
-        let total = 0;
-        cart.forEach(item => {
-            itemsList += `${item.product} - Rp ${item.price.toLocaleString()}\n`;
-            total += item.price;
-        });
-        
-        itemsTextarea.value = itemsList;
-        totalInput.value = `Rp ${total.toLocaleString()}`;
-    }
-    
     function submitCheckout(event) {
         event.preventDefault();
         alert("Checkout berhasil! Terima kasih telah berbelanja di Rifky Shopp.");
-        cart = [];
-        updateCheckout();
         document.getElementById('checkoutForm').reset();
     }
 </script>
