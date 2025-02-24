@@ -8,65 +8,82 @@
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
+            margin: 0;
             padding: 20px;
         }
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
             background-color: white;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
         }
         h1 {
             text-align: center;
             color: #333;
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
         }
-        table, th, td {
+        .cart-item img {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+        }
+        .cart-item-details {
+            flex-grow: 1;
+            margin-left: 20px;
+        }
+        .cart-item-details h3 {
+            margin: 0;
+            font-size: 16px;
+            color: #333;
+        }
+        .cart-item-details p {
+            margin: 5px 0;
+            color: #666;
+        }
+        .cart-item-quantity input {
+            width: 50px;
+            height: 30px;
+            text-align: center;
+            font-size: 14px;
             border: 1px solid #ddd;
-        }
-        th, td {
-            padding: 12px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-        input[type="number"], input[type="text"] {
-            width: 100px;
-            padding: 5px;
             border-radius: 4px;
-            border: 1px solid #ddd;
+            margin: 0 10px;
         }
-        .total {
-            font-size: 20px;
+        .cart-item-total {
             font-weight: bold;
-            margin-top: 20px;
-            text-align: right;
+            color: #333;
         }
-        .checkout-btn {
-            background-color: #28a745;
+        .checkout {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-top: 2px solid #ddd;
+        }
+        .checkout-button {
+            background-color: #ff6700;
             color: white;
             padding: 10px 20px;
+            font-size: 16px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
-            font-size: 16px;
-            text-align: center;
-            display: block;
-            margin-top: 20px;
         }
-        .checkout-btn:hover {
-            background-color: #218838;
+        .checkout-button:hover {
+            background-color: #ff3a00;
         }
-        .whatsapp {
-            margin-top: 20px;
-            text-align: center;
+        .total {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
         }
     </style>
 </head>
@@ -74,74 +91,88 @@
 
     <div class="container">
         <h1>Keranjang Belanja</h1>
-        <form id="cartForm">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Produk</th>
-                        <th>Harga</th>
-                        <th>Kuantitas</th>
-                        <th>Total Harga</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Kaos LEVI/T-shirt Casual</td>
-                        <td>Rp. 80.000,-</td>
-                        <td><input type="number" id="kaos-qty" name="kaos" min="0" value="0" onchange="calculateTotal()"></td>
-                        <td id="kaos-total">Rp. 0,-</td>
-                    </tr>
-                    <tr>
-                        <td>Kemeja Lengan Pendek</td>
-                        <td>Rp. 250.000,-</td>
-                        <td><input type="number" id="kemeja-qty" name="kemeja" min="0" value="0" onchange="calculateTotal()"></td>
-                        <td id="kemeja-total">Rp. 0,-</td>
-                    </tr>
-                    <tr>
-                        <td>JINISO - Denim Loose Cargo Jeans Pria 405</td>
-                        <td>Rp. 300.000,-</td>
-                        <td><input type="number" id="cargo-qty" name="cargo" min="0" value="0" onchange="calculateTotal()"></td>
-                        <td id="cargo-total">Rp. 0,-</td>
-                    </tr>
-                    <tr>
-                        <td>Jaket Denim Pria Famous</td>
-                        <td>Rp. 900.000,-</td>
-                        <td><input type="number" id="jaket-qty" name="jaket" min="0" value="0" onchange="calculateTotal()"></td>
-                        <td id="jaket-total">Rp. 0,-</td>
-                    </tr>
-                    <tr>
-                        <td>Tas SlingBag Distro</td>
-                        <td>Rp. 100.000,-</td>
-                        <td><input type="number" id="tas-qty" name="tas" min="0" value="0" onchange="calculateTotal()"></td>
-                        <td id="tas-total">Rp. 0,-</td>
-                    </tr>
-                    <tr>
-                        <td>Adidas Samba</td>
-                        <td>Rp. 2.500.000,-</td>
-                        <td><input type="number" id="adidas-qty" name="adidas" min="0" value="0" onchange="calculateTotal()"></td>
-                        <td id="adidas-total">Rp. 0,-</td>
-                    </tr>
-                </tbody>
-            </table>
 
-            <!-- Nomor WhatsApp -->
-             <a class="btn btn-dark btn-social mx-2" href="https://wa.me/623194247856" aria-label="Rifkyy Shopp WhatsApp Profile"><i class="fab fa-whatsapp"></i></a>
-            <div>
-            <div class="whatsapp">
-                <label for="whatsapp">Masukkan Nomor WhatsApp:</label>
-                <input type="text" id="whatsapp" name="whatsapp" placeholder="08xx-xxxx-xxxx" required>
+        <div class="cart-item">
+            <img src="https://via.placeholder.com/60" alt="Kaos LEVI">
+            <div class="cart-item-details">
+                <h3>Kaos LEVI / T-shirt Casual</h3>
+                <p>Harga: Rp. 80.000,-</p>
             </div>
+            <div class="cart-item-quantity">
+                <input type="number" id="kaos-qty" value="1" min="0" onchange="updateTotal()">
+            </div>
+            <div class="cart-item-total" id="kaos-total">Rp. 80.000,-</div>
+        </div>
 
+        <div class="cart-item">
+            <img src="https://via.placeholder.com/60" alt="Kemeja Lengan Pendek">
+            <div class="cart-item-details">
+                <h3>Kemeja Lengan Pendek</h3>
+                <p>Harga: Rp. 250.000,-</p>
+            </div>
+            <div class="cart-item-quantity">
+                <input type="number" id="kemeja-qty" value="1" min="0" onchange="updateTotal()">
+            </div>
+            <div class="cart-item-total" id="kemeja-total">Rp. 250.000,-</div>
+        </div>
+
+        <div class="cart-item">
+            <img src="https://via.placeholder.com/60" alt="Denim Loose Cargo Jeans">
+            <div class="cart-item-details">
+                <h3>JINISO - Denim Loose Cargo Jeans Pria 405</h3>
+                <p>Harga: Rp. 300.000,-</p>
+            </div>
+            <div class="cart-item-quantity">
+                <input type="number" id="cargo-qty" value="1" min="0" onchange="updateTotal()">
+            </div>
+            <div class="cart-item-total" id="cargo-total">Rp. 300.000,-</div>
+        </div>
+
+        <div class="cart-item">
+            <img src="https://via.placeholder.com/60" alt="Jaket Denim Pria">
+            <div class="cart-item-details">
+                <h3>Jaket Denim Pria Famous</h3>
+                <p>Harga: Rp. 900.000,-</p>
+            </div>
+            <div class="cart-item-quantity">
+                <input type="number" id="jaket-qty" value="1" min="0" onchange="updateTotal()">
+            </div>
+            <div class="cart-item-total" id="jaket-total">Rp. 900.000,-</div>
+        </div>
+
+        <div class="cart-item">
+            <img src="https://via.placeholder.com/60" alt="Tas SlingBag Distro">
+            <div class="cart-item-details">
+                <h3>Tas SlingBag Distro</h3>
+                <p>Harga: Rp. 100.000,-</p>
+            </div>
+            <div class="cart-item-quantity">
+                <input type="number" id="tas-qty" value="1" min="0" onchange="updateTotal()">
+            </div>
+            <div class="cart-item-total" id="tas-total">Rp. 100.000,-</div>
+        </div>
+
+        <div class="cart-item">
+            <img src="https://via.placeholder.com/60" alt="Adidas Samba">
+            <div class="cart-item-details">
+                <h3>Adidas Samba</h3>
+                <p>Harga: Rp. 2.500.000,-</p>
+            </div>
+            <div class="cart-item-quantity">
+                <input type="number" id="adidas-qty" value="1" min="0" onchange="updateTotal()">
+            </div>
+            <div class="cart-item-total" id="adidas-total">Rp. 2.500.000,-</div>
+        </div>
+
+        <div class="checkout">
             <div class="total" id="total-price">
-                Total: Rp. 0,-
+                Total: Rp. 4.130.000,-
             </div>
-
-            <button type="button" class="checkout-btn" onclick="proceedToCheckout()">Lanjutkan ke Checkout</button>
-        </form>
+            <button class="checkout-button" onclick="checkout()">Lanjutkan ke Checkout</button>
+        </div>
     </div>
 
     <script>
-        // Harga masing-masing produk
         const prices = {
             kaos: 80000,
             kemeja: 250000,
@@ -151,10 +182,10 @@
             adidas: 2500000
         };
 
-        // Menghitung total harga
-        function calculateTotal() {
+        function updateTotal() {
             let total = 0;
 
+            // Mengambil kuantitas produk dari input
             const kaosQty = document.getElementById('kaos-qty').value;
             const kemejaQty = document.getElementById('kemeja-qty').value;
             const cargoQty = document.getElementById('cargo-qty').value;
@@ -170,7 +201,7 @@
             const tasTotal = prices.tas * tasQty;
             const adidasTotal = prices.adidas * adidasQty;
 
-            // Menampilkan total per produk
+            // Memperbarui total harga per produk
             document.getElementById('kaos-total').innerText = `Rp. ${kaosTotal.toLocaleString()}`;
             document.getElementById('kemeja-total').innerText = `Rp. ${kemejaTotal.toLocaleString()}`;
             document.getElementById('cargo-total').innerText = `Rp. ${cargoTotal.toLocaleString()}`;
@@ -181,19 +212,14 @@
             // Menghitung total keseluruhan
             total = kaosTotal + kemejaTotal + cargoTotal + jaketTotal + tasTotal + adidasTotal;
 
-            // Menampilkan total keseluruhan
+            // Memperbarui total keseluruhan
             document.getElementById('total-price').innerText = `Total: Rp. ${total.toLocaleString()}`;
         }
 
-        // Fungsi untuk melanjutkan ke checkout (sementara hanya alert)
-        function proceedToCheckout() {
-            const whatsapp = document.getElementById('whatsapp').value;
-            if (whatsapp === "") {
-                alert("Harap masukkan nomor WhatsApp Anda!");
-                return;
-            }
-            alert('Melanjutkan ke halaman checkout... \nNomor WhatsApp Anda: ' + whatsapp);
+        function checkout() {
+            alert('Melanjutkan ke halaman checkout...');
         }
     </script>
+
 </body>
 </html>
