@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halaman Checkout</title>
+    <title>Keranjang Belanja</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,7 +11,7 @@
             padding: 20px;
         }
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             background-color: white;
             padding: 20px;
@@ -22,19 +22,26 @@
             text-align: center;
             color: #333;
         }
-        .product, .user-info, .payment-method {
-            margin-bottom: 20px;
-        }
-        .product label, .user-info label, .payment-method label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        .product input, .user-info input, .payment-method select {
+        table {
             width: 100%;
-            padding: 8px;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
             border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        input[type="number"] {
+            width: 60px;
+            padding: 5px;
             border-radius: 4px;
+            border: 1px solid #ddd;
         }
         .total {
             font-size: 20px;
@@ -50,6 +57,9 @@
             border-radius: 4px;
             cursor: pointer;
             font-size: 16px;
+            text-align: center;
+            display: block;
+            margin-top: 20px;
         }
         .checkout-btn:hover {
             background-color: #218838;
@@ -59,106 +69,111 @@
 <body>
 
     <div class="container">
-        <h1>Rifkyy Shopp !!!</h1>
-        <form id="checkoutForm">
-            <!-- Produk -->
-            <div class="product">
-                <label for="kaos">Kaos LEVI/T-shirt Casual (Rp. 80.000,-)</label>
-                <input type="number" id="kaos" name="kaos" min="0" value="0">
-            </div>
-            <div class="product">
-                <label for="kemeja">Kemeja Lengan Pendek (Rp. 250.000,-)</label>
-                <input type="number" id="kemeja" name="kemeja" min="0" value="0">
-            </div>
-            <div class="product">
-                <label for="cargo">JINISO - Denim Loose Cargo Jeans Pria 405 (Rp. 300.000,-)</label>
-                <input type="number" id="cargo" name="cargo" min="0" value="0">
-            </div>
-            <div class="product">
-                <label for="jaket">Jaket Denim Pria Famous (Rp. 900.000,-)</label>
-                <input type="number" id="jaket" name="jaket" min="0" value="0">
-            </div>
-            <div class="product">
-                <label for="tas">Tas SlingBag Distro (Rp. 100.000,-)</label>
-                <input type="number" id="tas" name="tas" min="0" value="0">
-            </div>
-            <div class="product">
-                <label for="adidas">Adidas Samba (Rp. 2.500.000,-)</label>
-                <input type="number" id="adidas" name="adidas" min="0" value="0">
-            </div>
-
-            <!-- Informasi Pengguna -->
-            <div class="user-info">
-                <label for="name">Nama Lengkap</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <div class="user-info">
-              <!-- modify this form HTML and place wherever you want your form -->
-<form
-  action="https://formspree.io/f/xovjzgao"
-  method="POST"
->
-  <label>
-    Your email:
-    <input type="email" name="email">
-  </label>
-  <label>
-    Your message:
-    <textarea name="message"></textarea>
-  </label>
-  <!-- your other form fields go here -->
-  <button type="submit">Send</button>
-</form>
-            </div>
-            <div class="user-info">
-                <label for="address">Alamat Pengiriman</label>
-                <input type="text" id="address" name="address" required>
-            </div>
-
-            <!-- Metode Pembayaran -->
-            <div class="payment-method">
-                <label for="payment-method">Pilih Metode Pembayaran</label>
-                <select id="payment-method" name="payment-method">
-                    <option value="transfer">Transfer Bank</option>
-                    <option value="cod">Cash On Delivery (COD)</option>
-                    <option value="e-wallet">E-Wallet (OVO, GoPay, dll.)</option>
-                </select>
-            </div>
-
+        <h1>Keranjang Belanja</h1>
+        <form id="cartForm">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Produk</th>
+                        <th>Harga</th>
+                        <th>Kuantitas</th>
+                        <th>Total Harga</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Kaos LEVI/T-shirt Casual</td>
+                        <td>Rp. 80.000,-</td>
+                        <td><input type="number" id="kaos-qty" name="kaos" min="0" value="0" onchange="calculateTotal()"></td>
+                        <td id="kaos-total">Rp. 0,-</td>
+                    </tr>
+                    <tr>
+                        <td>Kemeja Lengan Pendek</td>
+                        <td>Rp. 250.000,-</td>
+                        <td><input type="number" id="kemeja-qty" name="kemeja" min="0" value="0" onchange="calculateTotal()"></td>
+                        <td id="kemeja-total">Rp. 0,-</td>
+                    </tr>
+                    <tr>
+                        <td>JINISO - Denim Loose Cargo Jeans Pria 405</td>
+                        <td>Rp. 300.000,-</td>
+                        <td><input type="number" id="cargo-qty" name="cargo" min="0" value="0" onchange="calculateTotal()"></td>
+                        <td id="cargo-total">Rp. 0,-</td>
+                    </tr>
+                    <tr>
+                        <td>Jaket Denim Pria Famous</td>
+                        <td>Rp. 900.000,-</td>
+                        <td><input type="number" id="jaket-qty" name="jaket" min="0" value="0" onchange="calculateTotal()"></td>
+                        <td id="jaket-total">Rp. 0,-</td>
+                    </tr>
+                    <tr>
+                        <td>Tas SlingBag Distro</td>
+                        <td>Rp. 100.000,-</td>
+                        <td><input type="number" id="tas-qty" name="tas" min="0" value="0" onchange="calculateTotal()"></td>
+                        <td id="tas-total">Rp. 0,-</td>
+                    </tr>
+                    <tr>
+                        <td>Adidas Samba</td>
+                        <td>Rp. 2.500.000,-</td>
+                        <td><input type="number" id="adidas-qty" name="adidas" min="0" value="0" onchange="calculateTotal()"></td>
+                        <td id="adidas-total">Rp. 0,-</td>
+                    </tr>
+                </tbody>
+            </table>
             <div class="total" id="total-price">
                 Total: Rp. 0,-
             </div>
-
-            <button type="button" class="checkout-btn" onclick="calculateTotal()">Checkout</button>
+            <button type="button" class="checkout-btn" onclick="proceedToCheckout()">Lanjutkan ke Checkout</button>
         </form>
     </div>
 
     <script>
+        // Harga masing-masing produk
+        const prices = {
+            kaos: 80000,
+            kemeja: 250000,
+            cargo: 300000,
+            jaket: 900000,
+            tas: 100000,
+            adidas: 2500000
+        };
+
+        // Menghitung total harga
         function calculateTotal() {
-            var kaosPrice = 80000;
-            var kemejaPrice = 250000;
-            var cargoPrice = 300000;
-            var jaketPrice = 900000;
-            var tasPrice = 100000;
-            var adidasPrice = 2500000;
+            let total = 0;
 
-            var kaosQuantity = document.getElementById('kaos').value;
-            var kemejaQuantity = document.getElementById('kemeja').value;
-            var cargoQuantity = document.getElementById('cargo').value;
-            var jaketQuantity = document.getElementById('jaket').value;
-            var tasQuantity = document.getElementById('tas').value;
-            var adidasQuantity = document.getElementById('adidas').value;
+            const kaosQty = document.getElementById('kaos-qty').value;
+            const kemejaQty = document.getElementById('kemeja-qty').value;
+            const cargoQty = document.getElementById('cargo-qty').value;
+            const jaketQty = document.getElementById('jaket-qty').value;
+            const tasQty = document.getElementById('tas-qty').value;
+            const adidasQty = document.getElementById('adidas-qty').value;
 
-            var total = (
-                kaosPrice * kaosQuantity +
-                kemejaPrice * kemejaQuantity +
-                cargoPrice * cargoQuantity +
-                jaketPrice * jaketQuantity +
-                tasPrice * tasQuantity +
-                adidasPrice * adidasQuantity
-            );
+            // Menghitung total per produk
+            const kaosTotal = prices.kaos * kaosQty;
+            const kemejaTotal = prices.kemeja * kemejaQty;
+            const cargoTotal = prices.cargo * cargoQty;
+            const jaketTotal = prices.jaket * jaketQty;
+            const tasTotal = prices.tas * tasQty;
+            const adidasTotal = prices.adidas * adidasQty;
 
-            document.getElementById('total-price').innerHTML = 'Total: Rp. ' + total.toLocaleString();
+            // Menampilkan total per produk
+            document.getElementById('kaos-total').innerText = `Rp. ${kaosTotal.toLocaleString()}`;
+            document.getElementById('kemeja-total').innerText = `Rp. ${kemejaTotal.toLocaleString()}`;
+            document.getElementById('cargo-total').innerText = `Rp. ${cargoTotal.toLocaleString()}`;
+            document.getElementById('jaket-total').innerText = `Rp. ${jaketTotal.toLocaleString()}`;
+            document.getElementById('tas-total').innerText = `Rp. ${tasTotal.toLocaleString()}`;
+            document.getElementById('adidas-total').innerText = `Rp. ${adidasTotal.toLocaleString()}`;
+
+            // Menghitung total keseluruhan
+            total = kaosTotal + kemejaTotal + cargoTotal + jaketTotal + tasTotal + adidasTotal;
+
+            // Menampilkan total keseluruhan
+            document.getElementById('total-price').innerText = `Total: Rp. ${total.toLocaleString()}`;
+        }
+
+        // Fungsi untuk melanjutkan ke checkout (sementara hanya alert)
+        function proceedToCheckout() {
+            alert('Melanjutkan ke halaman checkout...');
         }
     </script>
 </body>
